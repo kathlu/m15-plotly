@@ -7,7 +7,7 @@ output: html_document
 
 # Interactive Map
 This is an chorpleth map using Plotly.
-```
+```{r echo=FALSE}
 
 library(plotly)
 df <- read.csv("https://raw.githubusercontent.com/plotly/datasets/master/2011_us_ag_exports.csv")
@@ -35,8 +35,5 @@ p <- plot_geo(df, locationmode = 'USA-states') %>%
     geo = g
   )
 
-# Create a shareable link to your chart
-# Set up API credentials: https://plot.ly/r/getting-started
-chart_link = plotly_POST(p, filename="choropleth/ag")
-chart_link
+p
 ```
