@@ -1,0 +1,22 @@
+---
+title: "index"
+output: html_document
+---
+
+# Bar Chart
+This bar chart compares the number of giraffes, monkeys, and orangutans 
+between the LA Zoo and SF Zoo.
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+library(plotly)
+
+Animals <- c("giraffes", "orangutans", "monkeys")
+SF_Zoo <- c(20, 14, 23)
+LA_Zoo <- c(12, 18, 29)
+data <- data.frame(Animals, SF_Zoo, LA_Zoo)
+
+p <- plot_ly(data, x = ~Animals, y = ~SF_Zoo, type = 'bar', name = 'SF Zoo') %>%
+  add_trace(y = ~LA_Zoo, name = 'LA Zoo') %>%
+  layout(yaxis = list(title = 'Count'), barmode = 'stack')
+
+p
+```
